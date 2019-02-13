@@ -1,0 +1,46 @@
+{
+  "name": "TestExample",
+  "version": "1.0.0-alpha.5",
+  "description": "",
+  "main": "index.html",
+  "dependencies": {
+    "del": "^2.2.2",
+    "gulp": "^3.9.1",
+    "express": "^4.16.3",
+    "joi": "^13.4.0",
+    "js-yaml": "^3.12.0",
+    "mongoose": "^5.2.5",
+    "mongoose-paginate": "^5.0.3",
+    "morgan": "^1.9.0",
+    "swagger-ui-express": "^3.0.10"
+  },
+  "devDependencies": {
+    "babel-cli": "^6.26.0",
+    "babel-plugin-transform-runtime": "^6.23.0",
+    "babel-preset-env": "^1.6.1",
+    "browser-sync": "^2.16.0",
+    "cors": "^2.8.5",
+    "eslint-config-airbnb-base": "^12.1.0",
+    "eslint-plugin-import": "^2.11.0",
+    "gulp": "^3.9.1",
+    "gulp-bower-src": "^0.1.0",
+    "gulp-concat": "^2.6.0",
+    "gulp-filter": "^4.0.0",
+    "gulp-rename": "^1.2.2",
+    "gulp-replace": "^0.5.4",
+    "gulp-sass": "^2.3.2",
+    "gulp-uglify": "^2.0.0",
+    "http-server": "^0.11.1",
+    "main-bower-files": "^2.13.1",
+    "nodemon": "^1.17.3",
+    "run-sequence": "^1.2.2"
+  },
+  "scripts": {
+    "start": "nodemon server/src/app.js --exec babel-node --presets env",
+    "build": "babel server/src -d dist --source-maps inline --copy-files",
+    "serve": "node server/dist/app.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Pham Hung",
+  "license": "http://coreui.io/license"
+}

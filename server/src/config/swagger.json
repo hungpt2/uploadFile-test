@@ -1,0 +1,97 @@
+{
+  "swagger": "2.0",
+  "info": {
+    "description": "File API document made by Pham Hung",
+    "version": "1.0.0",
+    "title": "File API documentation",
+    "contact": {
+      "email": "phhung93@gmail.com"
+    }
+  },
+  "host": "localhost:3000",
+  "basePath": "/api-docs",
+  "schemes": ["http"],
+  "consumes": ["application/json"],
+  "produces": ["application/json"],
+  "paths": {
+    "/uploadFile": {
+      "post": {
+        "tags": ["File"],
+        "summary": "API Endpoint for upload file",
+        "description": "Create new File information in database",
+        "parameters": [
+          {
+            "name": "file",
+            "description": "File params to create new file",
+            "in": "body",
+            "required": "true",
+            "schema": {
+              "$ref": "#definitions/File"
+            }
+          }
+        ],
+        "produces": ["application/json"],
+        "responses": {
+          "200": {
+            "description": "New File Uploaded",
+            "schema": {
+              "$ref": "#definitions/File"
+            }
+          }
+        }
+      }
+    },
+    "/getListFile": {
+      "get": {
+        "tags": ["File"],
+        "summary": "API Endpoint for get list file uploaded",
+        "description": "Get list file in database",
+        "parameters": [],
+        "produces": ["application/json"],
+        "responses": {
+          "200": {
+            "description": "Get List Uploaded Files",
+            "schema": {
+              "$ref": "#definitions/ListFile"
+            }
+          }
+        }
+      }
+    }
+  },
+  "definitions": {
+    "File": {
+      "required": ["fileName", "fileSize", "date", "user"],
+      "properties": {
+        "_id": {
+          "type": "string"
+        },
+        "fileName": {
+          "type": "string"
+        },
+        "fileSize": {
+          "type": "number"
+        },
+        "date": {
+          "type": "date"
+        },
+        "user": {
+          "type": "string"
+        }
+      }
+    },
+    "ListFile": {
+      "properties": {
+        "listFiles": {
+          "type": "array"
+        },
+        "fileIndex": {
+          "type": "number"
+        },
+        "totalCount": {
+          "type": "number"
+        }
+      }
+    }
+  }
+}

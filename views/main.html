@@ -1,0 +1,79 @@
+<div class="animated fadeIn" ng-controller="uploadFileCtl" data-ng-init="initial()">
+    <div class="row">
+        <div class="col-lg-12">
+            <div class="card">
+                <div class="card-header">
+                    <i class="fa fa-upload"></i>Upload Area
+                </div>
+                <div class="card-block">
+                    <div class="form-group row mb-0">
+                        <label class="col-md-3 form-control-label" for="file-input">File input</label>
+                        <div class="col-md-6">
+                            <input type="file" id="file-input" name="file-input" file-input="myFile">
+                        </div>
+                        <div class="col-md-3 text-right">
+                            <button type="button" class="btn btn-secondary" ng-click="validateFile()">Upload</button>
+                        </div>
+                    </div>
+                    <div class="form-group row mb-0" ng-if="isError">
+                        <div class="col-md-12 text-center">
+                            <span class="help-block text-danger">Please select file * .xlsx and less than 5mb.</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col-lg-12">
+            <div class="card">
+                <div class="card-header">
+                    <i class="fa fa-database"></i> List Uploaded File
+                </div>
+                <div class="card-block">
+                    <table class="table table-bordered table-striped table-sm">
+                        <thead>
+                            <tr>
+                                <th>File Name</th>
+                                <th>File Size</th>
+                                <th>Uploaded Date</th>
+                                <th>User</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr ng-repeat="(key, value) in listFileUploaded">
+                                <td>{{value.fileName}}</td>
+                                <td>{{value.fileSize}}</td>
+                                <td>{{value.date | date:'yyyy-MM-dd HH:mm:ss'}}</td>
+                                <td>{{value.user}}</td>
+                            </tr>
+                            <tr ng-if="listFileUploaded.length === 0">
+                                <td colspan="4" class="text-center">No data.</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                    <!-- pagination in the next pharse -->
+                    <!-- <nav>
+                        <ul class="pagination">
+                            <li class="page-item"><a class="page-link" href="#">Prev</a>
+                            </li>
+                            <li class="page-item active">
+                                <a class="page-link" href="#">1</a>
+                            </li>
+                            <li class="page-item"><a class="page-link" href="#">2</a>
+                            </li>
+                            <li class="page-item"><a class="page-link" href="#">3</a>
+                            </li>
+                            <li class="page-item"><a class="page-link" href="#">4</a>
+                            </li>
+                            <li class="page-item"><a class="page-link" href="#">Next</a>
+                            </li>
+                        </ul>
+                    </nav> -->
+                </div>
+            </div>
+        </div>
+    </div>
+
+</div>
